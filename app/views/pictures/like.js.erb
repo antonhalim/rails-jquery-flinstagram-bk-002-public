@@ -1,0 +1,2 @@
+var id = <%= @picture.id %>
+$('.like#' + id).replaceWith('<%= j render :partial => "pictures/like", :locals => {:picture => @picture} %>')
