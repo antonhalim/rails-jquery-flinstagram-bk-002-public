@@ -13,26 +13,26 @@
 
 ActiveRecord::Schema.define(version: 20140916202541) do
 
-  create_table "likes", force: true do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "picture_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "pictures", force: true do |t|
+  create_table "pictures", force: :cascade do |t|
     t.string   "url"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "profile_pic"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   def update_likes(user)
     user_liked?(user) ? unlike(user) : like(user)
@@ -25,8 +25,8 @@ class Picture < ActiveRecord::Base
   private
 
       def user_liked?(user)
-        self.likes.any? do |like| 
-          like.user_id == user.id 
+        self.likes.any? do |like|
+          like.user_id == user.id
         end
       end
 
